@@ -136,7 +136,9 @@ function make_webp_internal(burn_subtitles)
 
     -- increment filename
     for i=0,999 do
-        local fn = string.format('%s_%03d.webp',file_path,i)
+        -- TODO: increment doesn't work, use timestamp instead
+        local tme = os.date("%Y%m%d%H%M%S")
+        local fn = string.format('%s_%s.webp',file_path,tme)
         if not file_exists(fn) then
             webpname = fn
             break
